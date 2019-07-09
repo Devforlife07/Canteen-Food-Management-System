@@ -190,6 +190,7 @@ function additionaltask() {
   document.querySelector(".user-log .details h1").textContent = `Hello ${
     currentuser.username
   }`;
+  document.querySelector(".info").style.display = "none";
   document.querySelector(".logout").classList.toggle("none");
   document.querySelector(".login").classList.toggle("none");
 }
@@ -274,12 +275,6 @@ function savecurrentorder(a) {
 /*Load previous Orders*/
 window.addEventListener("DOMContentLoaded", loadsaved);
 function loadsaved(e) {
-  let info = document.createElement("h1");
-  info.appendChild(
-    document.createTextNode("Please Login Or Register To Continue")
-  );
-  document.querySelector(".slider").appendChild(info);
-  info.style.textAlign = "center";
   let saveorders = [];
   saveorders = JSON.parse(localStorage.getItem("orders"));
   displayorder(saveorders);

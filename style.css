@@ -64,7 +64,7 @@ nav:hover {
 /*section-buttons*/
 .slide {
   position: absolute;
-
+  margin-bottom: 2.5rem;
   border: none;
   background: transparent;
   font-size: 2rem;
@@ -109,7 +109,7 @@ nav:hover {
 }
 .fun {
   width: 60vw;
-  margin: auto;
+  margin: 2.5rem auto;
   display: flex;
   flex-direction: column;
 }
