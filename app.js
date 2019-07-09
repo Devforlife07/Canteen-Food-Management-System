@@ -196,8 +196,9 @@ function additionaltask() {
 /*LOGOUT*/
 document.querySelector(".logout").addEventListener("click", logout);
 function logout() {
-  if (window.confirm("Sochle Bhadwe Ek Baar")) {
+  if (window.confirm("Are You sure You want to logout")) {
     flag = 0;
+    document.querySelector(".fun").style.display = "none";
     document.querySelector(".logout").classList.toggle("none");
     document.querySelector(".login").classList.toggle("none");
     document.querySelector(".user-log .details h1").textContent = "";
@@ -249,11 +250,6 @@ function Orderinfo(user, price, item) {
   this.price = price;
   this.items = item;
 }
-// function saveorder(a) {
-//   if (JSON.parse(localStorage.getItem("orders")))
-//     console.log("Haan Bol Be Bhadwe");
-//   else localStorage.setItem("orders", JSON.stringify(a));
-// }
 let orders = [];
 function saveorder(a) {
   orders.push(a);
