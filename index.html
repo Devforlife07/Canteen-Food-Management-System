@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Summer Project</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+           
+  </head>
+  <body>
+    <nav class="nav">
+      <h1>CFMS</h1>
+      <ul class="collection">
+        <li class="collection-items">Contact Us</li>
+        <li class="collection-items">About Us</li>
+        <li class="collection-items register" >Register</li>
+        <li class="collection-items delete" style="display:none">Delete User</li>
+        <li class="collection-items login">Login</li>
+        <li class="collection-items logout none">Logout</li>
+
+      </ul>
+    </nav>
+    <section class="user-log">
+      <div class="details">
+        <h1 style="text-align:right;"></h1>
+      </div>
+    </section>
+    <section class="slider">
+      <img src="Aloo-Samosa-1.jpg" alt="" class="mySlide" />
+      <img src="IMG_2115.jpg" alt="" class="mySlide" />
+      <img src="veg-patty15.jpg" alt="" class="mySlide" />
+      <button class="slide slide-left" onclick="plusDiv(-1)">&#10094;</button>
+      <button class="slide slide-right" onclick="plusDiv(1)">&#10095;</button>
+    </section>
+    <section class="fun" style="display:none">
+      <div class="order my-1">
+        <h1 class="my-1">Place Your order here</h1>
+        <h3 class="my-1">Select Items</h3>
+        <div class="input my-1">
+          <p>Select items by clicking arrow</p>
+          <span><i class="fas fa-sort-down fa-2x" id="down" ></i></span>
+        </div>
+        <div class="items">
+          <ul class="collection-2">
+            <li>Samosa</li>
+            <li>Idli</li>
+            <li>Patties</li>
+          </ul>
+        </div></div>
+     
+          <div class="order my-1">
+            <input type="text" class="my-1" id="qty"placeholder="Please Enter The Quantity">
+          </div>
+          <button style="position: relative;left:50%;transform:translateX(-50%);" onclick="cal()" class="btn">
+            Submit
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="dashboard">
+     <h1 style="text-align: center;width:100%;">Current Orders</h1>
+    </section>
+    
+    <div class="disp"><span><i class="far fa-window-close fa-2x"></i></span>
+    <h1 style="text-align:center">Sign Up</h1>
+    <form action="" class="sign-up">
+      <label style="display: inline-block;font-weight:800" for="username" class="my-1 ">Username:</label>
+      <input id="username" style="margin: 1rem" type="text">
+     <label style="display: inline-block;font-weight:800" class="my-1" for="password">Password:</label> 
+     <input type="password" id="password" style="margin: 1rem" >
+     <p class="msg"></p>
+     <input type="submit" id="submit">
+    </form>
+    </div>
+    <div class="del"><span><i class="far fa-window-close fa-2x"></i></span>
+      <label for="show">Click here to load userrs </label>
+      <button id="show" onclick="showusers()">Submit</button>
+      <ul class="collection-users"></ul>
+    </div>
+    <div class="login-form"><span><i class="far fa-window-close fa-2x"></i></span>
+    <form  class="login">
+      <h1 style="text-align: center">Login</h1>
+      <label class="my-1" for="username-login">Username:</label>
+      <input type="text" id="username-login">
+      <br>
+       <label for="password-login">Password:</label>
+       <input type="password" id="password-login">
+       <br>
+    </form>
+    <p class="mess"></p>
+    <button class="login-btn" onclick="login()">Click Here</button>
+  </div>
+  <script src="https://kit.fontawesome.com/17bd7f5074.js"></script>
+  <script src="app.js"></script>
+ 
+</body>
+</html>
