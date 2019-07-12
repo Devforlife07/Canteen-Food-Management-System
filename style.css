@@ -274,11 +274,16 @@ nav:hover {
   border-radius: 1rem;
   margin: 2rem auto;
   width: 80vh;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .dashboard div {
   padding: 1rem;
 }
 .dashboard div ul {
-  padding: 0.5rem;
+  padding: 0;
+
+  list-style: none;
+}
+.dashboard div ul li {
 }

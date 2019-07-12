@@ -18,37 +18,6 @@ function showDivs(n) {
   }
   x[slideIndex - 1].style.display = "block";
 }
-// let x = document.querySelector("#down");
-
-// x.addEventListener("click", function() {
-//   document.querySelector(".items").classList.toggle("items-restore");
-// });
-// let z = document.querySelector(".collection-2");
-// let a,
-//   cost = 0,
-//   totalcost = 0;
-// let qty;
-// z.addEventListener("click", function(e) {
-//   a = e.target.textContent;
-//   a = a.toLowerCase();
-//   document.querySelector(".input p").textContent = a.toUpperCase();
-//   document.querySelector(".input p").style.marginLeft = "0.2rem";
-//   console.log(typeof a);
-// });
-// function cal() {
-//   if (a == "samosa") {
-//     cost = 8;
-//   } else if (a == "patties") {
-//     cost = 10;
-//   } else if (a == "idli") {
-//     cost = 40;
-//   } else {
-//     cost = 60;
-//   }
-//   qty = parseInt(document.querySelector("#qty").value);
-//   totalcost = qty * cost;
-//   console.log(totalcost);
-// }
 document.querySelector(".register").addEventListener("click", function() {
   let login = document.querySelector(".disp");
   login.style.display = "block";
@@ -237,11 +206,10 @@ function cal() {
   }
   qty = parseInt(document.querySelector("#qty").value);
   totalcost = qty * cost;
-  // if (currentuser.totalcost)
-  //   currentuser.totalcost = currentuser.totalcost + totalcost;
-  // else currentuser.totalcost = totalcost;
+
   currentuser.totalcost = totalcost;
   saveorder(currentuser);
+  // showbutton(currentuser);
 }
 
 //Save order to localstorage
@@ -254,8 +222,7 @@ function Orderinfo(user, price, item) {
 let orders = [];
 function saveorder(a) {
   orders.push(a);
-  console.log(orders);
-  displaycurrentorder(a);
+
   savecurrentorder(a);
 }
 /*Save Current Order*/
@@ -268,45 +235,57 @@ function savecurrentorder(a) {
     save = JSON.parse(localStorage.getItem("orders"));
     save.push(a);
     localStorage.setItem("orders", JSON.stringify(save));
-    console.log(save);
   }
+  let rem = document.querySelectorAll(".dashboard div");
+  rem.forEach(function(argument) {
+    document.querySelector(".dashboard").removeChild(argument);
+  });
+  loadsaved(a);
 }
+let saveorders = [];
 
 /*Load previous Orders*/
 window.addEventListener("DOMContentLoaded", loadsaved);
 function loadsaved(e) {
-  let saveorders = [];
+  let ids = 1;
   saveorders = JSON.parse(localStorage.getItem("orders"));
+  saveorders.forEach(user => (user.sequence = ids++));
+  // showbutton(saveorders);
   displayorder(saveorders);
 }
 
 /*display current orders*/
-function displaycurrentorder(a) {
-  console.log(a);
-  let divi = document.createElement("div");
-  let uli = document.createElement("ul");
-  let a1 = document.createElement("li");
-  let a2 = document.createElement("li");
-  let a3 = document.createElement("li");
-  a1.appendChild(document.createTextNode(`User:${a.username}`));
-  uli.appendChild(a1);
+// function displaycurrentorder(a) {
+//   console.log(a);
+//   let divi = document.createElement("div");
+//   let uli = document.createElement("ul");
+//   let a1 = document.createElement("li");
+//   let a2 = document.createElement("li");
+//   let a3 = document.createElement("li");
+//   a1.appendChild(document.createTextNode(`User:${a.username}`));
+//   uli.appendChild(a1);
 
-  a2.appendChild(document.createTextNode(`TotalPrice:${a.totalcost}`));
+//   a2.appendChild(document.createTextNode(`TotalPrice:${a.totalcost}`));
 
-  uli.appendChild(a2);
-  a3.appendChild(document.createTextNode(`Items:${a.orderlist[0]}`));
-  uli.appendChild(a3);
-  divi.appendChild(uli);
-  document.querySelector(".dashboard").appendChild(divi);
-}
+//   uli.appendChild(a2);
+//   a3.appendChild(document.createTextNode(`Items:${a.orderlist[0]}`));
+//   uli.appendChild(a3);
+//   divi.appendChild(uli);
+//   document.querySelector(".dashboard").appendChild(divi);
+// }
 /*Display orders*/
 function displayorder(a) {
+  let id = 1;
+
   a.forEach(function(user) {
     let divi = document.createElement("div");
     let uli = document.createElement("ul");
     let a1 = document.createElement("li");
     let a2 = document.createElement("li");
     let a3 = document.createElement("li");
+    let a4 = document.createElement("li");
+    let b1 = document.createElement("button");
+    b1.appendChild(document.createTextNode("Delievered"));
 
     a1.appendChild(document.createTextNode(`User:${user.username}`));
     uli.appendChild(a1);
@@ -315,8 +294,65 @@ function displayorder(a) {
 
     uli.appendChild(a2);
     a3.appendChild(document.createTextNode(`Items:${user.orderlist}`));
+    a4.appendChild(document.createTextNode(`Sequence:${user.sequence}`));
     uli.appendChild(a3);
+    uli.appendChild(a4);
     divi.appendChild(uli);
+    divi.appendChild(b1);
     document.querySelector(".dashboard").appendChild(divi);
+    b1.id = id++;
+    // b1.addEventListener("click", () => console.log("I am clicked") + this.id);
   });
 }
+// function dispbutton() {
+//   if (currentuser) {
+//     let button = document.createElement("button");
+//     button.appendChild(document.createTextNode("Delievered"));
+//     divi.appendChild(button);
+//   }
+// }
+function idassign(a) {
+  let btn = document.querySelectorAll(".dashboard button");
+  let id = 1;
+  btn.forEach(btn => (btn.id = id++));
+  let seq = 1;
+  console.log(a);
+  a.forEach(a => {
+    a.sequence = seq++;
+  });
+}
+let saveord;
+/*Event listeners on button*/
+let dash = document.querySelector(".dashboard");
+dash.addEventListener("click", butclick);
+function butclick(e) {
+  if (e.target.type == "submit") {
+    let saveorders = JSON.parse(localStorage.getItem("orders"));
+    let require = e.target.id;
+    saveorders.splice(--require, 1);
+    saveord = saveorders;
+    localStorage.removeItem("orders");
+    localStorage.setItem("orders", JSON.stringify(saveorders));
+    let allp = document.querySelector(".dashboard");
+    let all = document.querySelectorAll(".dashboard div");
+    for (let i = 0; i < all.length; i++) {
+      all[i].remove();
+    }
+    // let all = (document.querySelector(
+    //   ".dashboard"
+    // ).innerHTML = `<h1 id="unique">Current Orders</h1>`);
+    // document.querySelector("#unique").style.textAlign = "center";
+    loadsaved(saveorders);
+    saveord = saveorders;
+  }
+}
+
+// function showbutton(a) {
+//   console.log(saveord);
+//   console.log(a);
+
+//   let but = document.querySelectorAll(".dashboard div ul button");
+//   if (a.username == saveord.username) {
+//     button.style.display = none;
+//   }
+// }
