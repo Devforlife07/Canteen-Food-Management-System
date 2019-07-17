@@ -1,9 +1,10 @@
 body {
   display: flex;
+  margin: 0;
   flex-direction: column;
 }
 nav {
-  width: 100vw;
+  width: 100%;
   font-size: 0.7rem;
   font-weight: 900;
 }
@@ -11,6 +12,12 @@ nav {
   padding: 0.6rem;
   margin: 1rem auto;
   width: 70vw;
+}
+.details h1 {
+  font-size: 1.2rem;
+}
+.fun {
+  width: 80vw;
 }
 .slider img {
   display: block;
@@ -22,4 +29,20 @@ nav {
   display: inline-block;
   position: absolute;
   top: 50%;
+}
+.input {
+  padding: 1.2em;
+  height: 5vh;
+}
+.input i {
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.input p {
+  font-size: 0.8rem;
+}
+#qty {
+  padding: 1.2em;
+  height: 5vh;
+  width: 100%;
 }

@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0px;
+  
   font-family: "Quicksand", sans-serif;
 }
 /*UTILITY Classes*/
@@ -55,6 +56,7 @@ nav:hover {
   height: 100%;
 }
 .slider div {
+  margin: auto;
   position: relative;
 }
 /*images*/
@@ -133,7 +135,7 @@ nav:hover {
 .input {
   position: relative;
   border: solid grey 1px;
-  border-radius: 1rem;
+  border-radius: 2rem;
   background: none;
   height: 8vh;
   width: 50vw;
@@ -173,7 +175,6 @@ nav:hover {
 .btn {
   padding: 0.6rem;
   font-size: 0.8rem;
-  width: 20%;
   margin: 1rem auto;
 }
 .order input {
