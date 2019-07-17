@@ -3,8 +3,8 @@ body {
   flex-direction: column;
 }
 nav {
-  max-width: 80vw;
-  font-size: 0.5rem;
+  width: 100vw;
+  font-size: 0.7rem;
   font-weight: 900;
 }
 .dashboard {
