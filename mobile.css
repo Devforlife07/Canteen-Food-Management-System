@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  font-size: 0.5rem;
+  font-weight: 900;
+}
+.dashboard {
+  padding: 0.6rem;
+  margin: 1rem auto;
+  width: 70vw;
+}
+.slider img {
+  display: block;
+  height: 35vh;
+  width: 70%;
+  position: relative;
+}
+.slide-left {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+}

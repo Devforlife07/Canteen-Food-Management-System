@@ -162,6 +162,8 @@ function additionaltask() {
   document.querySelector(".info").style.display = "none";
   document.querySelector(".logout").classList.toggle("none");
   document.querySelector(".login").classList.toggle("none");
+  console.log(currentuser);
+  showbutton(currentuser);
 }
 /*LOGOUT*/
 document.querySelector(".logout").addEventListener("click", logout);
@@ -252,6 +254,7 @@ function loadsaved(e) {
   saveorders.forEach(user => (user.sequence = ids++));
   // showbutton(saveorders);
   displayorder(saveorders);
+  saveord = saveorders;
 }
 
 /*display current orders*/
@@ -343,16 +346,17 @@ function butclick(e) {
     // ).innerHTML = `<h1 id="unique">Current Orders</h1>`);
     // document.querySelector("#unique").style.textAlign = "center";
     loadsaved(saveorders);
-    saveord = saveorders;
   }
 }
 
-// function showbutton(a) {
-//   console.log(saveord);
-//   console.log(a);
-
-//   let but = document.querySelectorAll(".dashboard div ul button");
-//   if (a.username == saveord.username) {
-//     button.style.display = none;
-//   }
-// }
+function showbutton(a) {
+  console.log(saveord);
+  let but = document.querySelectorAll(".dashboard  button");
+  for (let i = 0; i < saveord.length; i++) {
+    console.log(a.username);
+    console.log(saveord[i].username);
+    if (a.username !== saveord[i].username) {
+      but[i].style.display = "none";
+    }
+  }
+}
