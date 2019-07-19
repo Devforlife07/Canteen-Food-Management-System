@@ -148,6 +148,7 @@ function login() {
   if (flag === 1) {
     document.querySelector(".mess").textContent =
       "You Are Successfully Logged In";
+    showbutton(currentuser);
     additionaltask();
   } else
     document.querySelector(".mess").textContent = "Wrong Username Or Password";
@@ -162,8 +163,6 @@ function additionaltask() {
   document.querySelector(".info").style.display = "none";
   document.querySelector(".logout").classList.toggle("none");
   document.querySelector(".login").classList.toggle("none");
-  console.log(currentuser);
-  showbutton(currentuser);
 }
 /*LOGOUT*/
 document.querySelector(".logout").addEventListener("click", logout);
@@ -174,6 +173,10 @@ function logout() {
     document.querySelector(".logout").classList.toggle("none");
     document.querySelector(".login").classList.toggle("none");
     document.querySelector(".user-log .details h1").textContent = "";
+    currentuser = [];
+    document.querySelector(".login-btn").disabled = false;
+    document.querySelector(".mess").textContent = "";
+    showbutton(currentuser);
   }
 }
 
@@ -226,6 +229,7 @@ function saveorder(a) {
   orders.push(a);
 
   savecurrentorder(a);
+  showbutton(currentuser);
 }
 /*Save Current Order*/
 function savecurrentorder(a) {
@@ -255,27 +259,12 @@ function loadsaved(e) {
   // showbutton(saveorders);
   displayorder(saveorders);
   saveord = saveorders;
+  let random = document.querySelectorAll(".dashboard button");
+  random.forEach(task => {
+    task.style.display = "none";
+  });
 }
 
-/*display current orders*/
-// function displaycurrentorder(a) {
-//   console.log(a);
-//   let divi = document.createElement("div");
-//   let uli = document.createElement("ul");
-//   let a1 = document.createElement("li");
-//   let a2 = document.createElement("li");
-//   let a3 = document.createElement("li");
-//   a1.appendChild(document.createTextNode(`User:${a.username}`));
-//   uli.appendChild(a1);
-
-//   a2.appendChild(document.createTextNode(`TotalPrice:${a.totalcost}`));
-
-//   uli.appendChild(a2);
-//   a3.appendChild(document.createTextNode(`Items:${a.orderlist[0]}`));
-//   uli.appendChild(a3);
-//   divi.appendChild(uli);
-//   document.querySelector(".dashboard").appendChild(divi);
-// }
 /*Display orders*/
 function displayorder(a) {
   let id = 1;
@@ -289,12 +278,9 @@ function displayorder(a) {
     let a4 = document.createElement("li");
     let b1 = document.createElement("button");
     b1.appendChild(document.createTextNode("Delievered"));
-
     a1.appendChild(document.createTextNode(`User:${user.username}`));
     uli.appendChild(a1);
-
     a2.appendChild(document.createTextNode(`TotalPrice:${user.totalcost}`));
-
     uli.appendChild(a2);
     a3.appendChild(document.createTextNode(`Items:${user.orderlist}`));
     a4.appendChild(document.createTextNode(`Sequence:${user.sequence}`));
@@ -304,16 +290,8 @@ function displayorder(a) {
     divi.appendChild(b1);
     document.querySelector(".dashboard").appendChild(divi);
     b1.id = id++;
-    // b1.addEventListener("click", () => console.log("I am clicked") + this.id);
   });
 }
-// function dispbutton() {
-//   if (currentuser) {
-//     let button = document.createElement("button");
-//     button.appendChild(document.createTextNode("Delievered"));
-//     divi.appendChild(button);
-//   }
-// }
 function idassign(a) {
   let btn = document.querySelectorAll(".dashboard button");
   let id = 1;
@@ -323,6 +301,7 @@ function idassign(a) {
   a.forEach(a => {
     a.sequence = seq++;
   });
+  // showbutton(saverorders);
 }
 let saveord;
 /*Event listeners on button*/
@@ -341,11 +320,9 @@ function butclick(e) {
     for (let i = 0; i < all.length; i++) {
       all[i].remove();
     }
-    // let all = (document.querySelector(
-    //   ".dashboard"
-    // ).innerHTML = `<h1 id="unique">Current Orders</h1>`);
-    // document.querySelector("#unique").style.textAlign = "center";
+
     loadsaved(saveorders);
+    showbutton(currentuser);
   }
 }
 
@@ -357,6 +334,8 @@ function showbutton(a) {
     console.log(saveord[i].username);
     if (a.username !== saveord[i].username) {
       but[i].style.display = "none";
+    } else {
+      but[i].style.display = "block";
     }
   }
 }
