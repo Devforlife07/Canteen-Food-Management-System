@@ -206,8 +206,14 @@ function cal() {
     cost = 10;
   } else if (a == "idli") {
     cost = 40;
-  } else {
+  } else if (a == "dosa") {
     cost = 60;
+  } else if (a == "upma") {
+    cost = 30;
+  } else if (a == "chhole bhature") {
+    cost = 50;
+  } else {
+    cost = 40;
   }
   qty = parseInt(document.querySelector("#qty").value);
   totalcost = qty * cost;
@@ -338,4 +344,21 @@ function showbutton(a) {
       but[i].style.display = "block";
     }
   }
+}
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.querySelector(".details p").innerHTML = h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+startTime();
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  } // add zero in front of numbers < 10
+  return i;
 }
