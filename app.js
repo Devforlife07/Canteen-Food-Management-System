@@ -222,7 +222,9 @@ function cal() {
   saveorder(currentuser);
   // showbutton(currentuser);
 }
-
+/**
+ 
+ */
 //Save order to localstorage
 
 function Orderinfo(user, price, item) {
@@ -283,7 +285,7 @@ function displayorder(a) {
     let a3 = document.createElement("li");
     let a4 = document.createElement("li");
     let b1 = document.createElement("button");
-    b1.appendChild(document.createTextNode("Delievered"));
+    b1.appendChild(document.createTextNode("Delivered"));
     a1.appendChild(document.createTextNode(`User:${user.username}`));
     uli.appendChild(a1);
     a2.appendChild(document.createTextNode(`TotalPrice:${user.totalcost}`));

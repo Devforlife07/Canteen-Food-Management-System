@@ -44,6 +44,7 @@ nav ul {
 /*nav ul li*/
 .collection-items {
   display: flex;
+  cursor: pointer;
   align-items: center;
   padding: 0 0.5rem;
   margin: 0 0.5rem;
@@ -119,6 +120,9 @@ nav:hover {
   text-align: center;
   list-style: none;
 }
+.collection-2 li {
+  cursor: pointer;
+}
 
 /*input-field-1*/
 .order select {
@@ -146,6 +150,17 @@ nav:hover {
 /*Trial Starts Here*/
 .fun div {
   position: relative;
+}
+/*Button*/
+.fun button {
+  background: #66ff66;
+  color: white;
+  border: none;
+  border-radius: 3rem;
+}
+.fun button:hover {
+  box-shadow: 2px 2px 2px black;
+  cursor: pointer;
 }
 .input {
   position: relative;
@@ -256,7 +271,6 @@ nav:hover {
 }
 .login-form {
   display: none;
-  height: 60vh;
   width: 60vw;
   background: #99ebff;
   position: absolute;
@@ -295,11 +309,14 @@ nav:hover {
 .dashboard {
   display: flex;
 
-  background: #d9d9d9;
+  /* background: #d9d9d9; */
+  /* background: #ffff4d; */
+  background: linear-gradient(to right, #43cea2, #185a9d);
   box-shadow: 0.5rem 0.5rem 0.5rem #edede0;
   border-radius: 1rem;
   margin: 2rem auto;
   width: 80vh;
+  color: white;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -312,6 +329,10 @@ nav:hover {
   list-style: none;
 }
 .dashboard button {
-  /* display: none; */
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 2rem;
+  padding: 0.5rem;
 }
 /*responsive design*/

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contact Us</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: url("jss.jpg");
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      body::before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+      }
+      .container {
+        width: 60vw;
+        margin: auto;
+        /* height: 60vh; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: white;
+        transform: translate(-50%, -50%);
+      }
+      @media screen and (max-width: 600px) {
+        body {
+          width: 100vw;
+        }
+        i {
+          font-size: 2rem !important;
+        }
+        .Contact {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .container {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1
+        style="text-align:center;font-size:2rem; border-bottom:solid 1px white;"
+      >
+        Contact Us
+      </h1>
+      <h3 style="margin-top:1rem; text-align:center;">You can reach us by:</h3>
+      <div class="Contact" style="width: 80%; margin: 2rem auto;">
+        <a style="margin:1rem " href="http://www.facebook.com/devforlife07">
+          <i
+            class="fab fa-facebook-f fa-6x"
+            style=" text-decoration:none;color:white;"
+          ></i
+        ></a>
+        <a href="" style="text-decoration: none; color:white;margin:1rem;"
+          ><i class="fab fa-instagram fa-6x"></i
+        ></a>
+        <a href="" style="text-decoration: none; color:white; margin:1rem;"
+          ><i class="fab fa-twitter fa-6x"></i
+        ></a>
+        <a href="" style="text-decoration: none; color:white; margin:1rem;"
+          ><i class="fab fa-whatsapp fa-6x"></i
+        ></a>
+        <h2 style="text-align:center;margin-top:1.5rem;font-size:1.8rem;">
+          Or Mail Us At
+        </h2>
+      </div>
+      <h2 style="font-size:1.5rem;">
+        Devansh.forlife@gmail.com
+      </h2>
+    </div>
+    <script src="https://kit.fontawesome.com/17bd7f5074.js"></script>
+  </body>
+</html>
